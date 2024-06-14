@@ -1,10 +1,15 @@
 import pandas as pd
 from pymongo import MongoClient
+import os
 
-# Leggi il file CSV
-df = pd.read_csv('/Users/carlovenditto/Desktop/BD2PROGETTO/SpotStats/dataset/clean_dataset.csv')
+# find correct dataset path
+package_path = os.path.dirname(__file__)
+root_path = os.path.dirname(package_path)
+clean_dataset_path = os.path.join(root_path, 'dataset/clean_dataset.csv')
 
-# Crea una connessione al tuo database MongoDB
+df = pd.read_csv(clean_dataset_path)
+
+# Connetti al server MongoDB
 client = MongoClient('mongodb://localhost:27017/')
 
 # Seleziona il database e la collezione
