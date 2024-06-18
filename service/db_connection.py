@@ -14,10 +14,8 @@ client = MongoClient('mongodb://localhost:27017/')
 
 # Seleziona il database e la collezione
 db = client['SpotyStats']
-collection = db['Stats']
-
-# Converte il DataFrame in un dizionario
-data = df.to_dict('records')
+songs_collection = db['Songs']
+artists_collection = db['Artists']
 
 # Inserisci il dizionario nel database MongoDB
 collection.insert_many(data)
