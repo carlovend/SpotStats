@@ -39,7 +39,7 @@ const SearchPage = () => {
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Enter song name..."
         />
-        <button onClick={handleSearch}>Search</button>
+        <button className="submit-button" onClick={handleSearch}>Search</button>
       </div>
       <div className="results">
         {results.length === 0 ? (

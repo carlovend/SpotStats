@@ -30,9 +30,15 @@ def find_by_name():
 @app.route("/query/find_popular_songs", methods=['POST'])
 def find_popular_songs():
     try:
-        result = manager.find_popular_songs()
+        data = request.get_json()
+        filtro_ordinamento = data["filtro_ordinamento"]
+
+        if filtro_ordinamento not in ["popularity", "name", "artist_id", "highest_position"]:
+            raise Exception("Filtro di ordinamento non valido")
     except:
-        return jsonify({"error": "server error"}), 500
+        return jsonify({"error": "Invalid request"}), 400
+
+    result = manager.find_popular_songs(filtro_ordinamento)
 
     return app.response_class(response=dumps(result), mimetype='application/json'), 200
 

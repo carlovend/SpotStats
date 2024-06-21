@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+import pymongo
 
 client = MongoClient('mongodb://localhost:27017/')
 db = client['SpotyStats']
@@ -31,7 +32,17 @@ def find_most_streamed_song():
 
 
 # query della home
-def find_popular_songs():
-    songs = songs_collection.find()
-    popular_songs = [song for song in songs if song[("popularity")] > 75]
-    return popular_songs
+def find_popular_songs(filtro_ordinamento="popularity"):
+    """
+
+    :param filtro_ordinamento: se non viene passato vale già popularity
+    :return: lista delle canzoni con popularity > 75
+    """
+    direction = pymongo.DESCENDING
+    if filtro_ordinamento in ["name", "artist_id", "highest_position"]:
+        direction = pymongo.ASCENDING
+
+    filtro_popularity = {"popularity": {"$gt": 75}}
+    songs = (songs_collection.find(filtro_popularity).sort(filtro_ordinamento, direction=direction).limit(100))
+
+    return list(songs)
