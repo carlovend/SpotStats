@@ -29,6 +29,7 @@ def create_documents(df):
             "song_id": row["Song ID"],
             "name": row["Song Name"],
             "artist_id": row["Artist"],
+            "genre": row["Genre"], # aggiunta io (Leopoldo) stasera
             "highest_position": row["Highest Charting Position"],
             "weeks_on_chart": row["Number of Times Charted"],
             "streams": int(row["Streams"].replace(',', '')),
