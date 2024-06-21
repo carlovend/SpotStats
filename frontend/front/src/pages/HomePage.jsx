@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMusic } from '@fortawesome/free-solid-svg-icons';
 import './HomePage.css';
+import SongCard from "../components/SongCard";
+
+
+
 
 const HomePage = () => {
   const [songs, setSongs] = useState([]);
@@ -20,6 +24,7 @@ const HomePage = () => {
         return response.json();
       })
       .then(data => {
+          console.log(data[0])
         setSongs(data);
       })
       .catch(error => {
@@ -37,14 +42,7 @@ const HomePage = () => {
       ) : (
         <div className="song-list">
           {songs.map(song => (
-            <div key={song._id.$oid} className="song-card">
-              <div className="song-info">
-                <h2 className="song-name">{song.name}</h2>
-                <p className="song-artist">{song.artist}</p>
-                <p className="song-position">Highest Position: {song.highest_position}</p>
-                <p className="song-popularity">Popularity: {song.popularity}</p>
-              </div>
-            </div>
+            <SongCard key={song._id} song={song}/>
           ))}
         </div>
       )}

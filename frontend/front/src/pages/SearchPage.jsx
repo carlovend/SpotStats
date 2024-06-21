@@ -46,7 +46,7 @@ const SearchPage = () => {
           <p>No results found</p>
         ) : (
           results.map(song => (
-            <div key={song._id.$oid} className="song-card">
+            <div key={song._id} className="song-card">
               <div className="song-info">
                 <h2 className="song-name">{song.name}</h2>
                 <p className="song-artist">Artist: {song.artist_id}</p>

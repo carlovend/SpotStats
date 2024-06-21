@@ -1,15 +1,10 @@
 /* SearchPage.css */
-body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background-color: #121212;
-  color: #fff;
-  margin: 0;
-  padding: 0;
-}
-
 .search-page {
-  padding: 20px;
-  overflow-y: auto; /* Consente lo scrolling */
+
+  display: flex;
+  width: 85%;
+  flex-direction: column;
+  overflow-y: auto;
 }
 
 .header {
