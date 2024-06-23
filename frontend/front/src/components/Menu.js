@@ -22,10 +22,12 @@ class Menu extends React.Component {
                   <span>Ricerca</span>
                 </div>
                       </Link>
-                <div className="sidebar-option">
+                <Link to={"/trending_artists"}>
+                  <div className="sidebar-option">
                   <FontAwesomeIcon icon={faStar} />
-                  <span>Trending</span>
+                  <span>Trending Artists</span>
                 </div>
+                    </Link>
               </div>
             </div>
   );

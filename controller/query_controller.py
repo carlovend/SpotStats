@@ -43,5 +43,12 @@ def find_popular_songs():
     return app.response_class(response=dumps(result), mimetype='application/json'), 200
 
 
+@app.route("/query/find_most_followed_artists", methods=['POST'])
+def find_most_streamed_songs():
+    result = manager.find_top_50_artists()
+    print(result[0])
+    return app.response_class(response=dumps(result), mimetype='application/json'), 200
+
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5010, debug=True)

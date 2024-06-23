@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import SearchPage from "./pages/SearchPage";
 import Menu from "./components/Menu"; // Assicurati che il percorso sia corretto
 import AppShell from "./AppShell";
+import TrendingPage from "./pages/TrendingArtistsPage";
 
 
 const AppRoutes = () => {
@@ -12,6 +13,7 @@ const AppRoutes = () => {
         <Routes>
             <Route path="/" element={<AppShell> <Menu/> <HomePage/> </AppShell>} />
             <Route path="/search" element={<AppShell> <Menu/> <SearchPage/> </AppShell>} />
+            <Route path="/trending_artists" element={<AppShell> <Menu/> <TrendingPage/> </AppShell>} />
         </Routes>
     )
 }

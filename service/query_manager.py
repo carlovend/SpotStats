@@ -22,14 +22,14 @@ def find_song_by_artist(artista: str):
 # query per mosto followed artist
 
 def find_top_50_artists():
-    results = list(artists_collection.find().sort("Followers", -1).limit(50))
+    results = list(artists_collection.find().sort("Followers", pymongo.DESCENDING).limit(50))
     return results
 
 
 def find_most_streamed_song():
-    results = list(songs_collection.find().sort("Streams", -1).limit(50))
-    return results
+    results = (songs_collection.find().sort("Streams", direction=1).limit(50))
 
+    return list(results)
 
 # query della home
 def find_popular_songs(filtro_ordinamento="popularity"):

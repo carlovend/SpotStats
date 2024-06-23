@@ -8,8 +8,8 @@ import SongCard from "../components/SongCard";
 
 
 const HomePage = () => {
-  const [songs, setSongs] = useState([]);
-  const [filtro, setFiltro] = useState("popularity")
+    const [songs, setSongs] = useState([]);
+    const [filtro, setFiltro] = useState("popularity")
 
     const handleFiltroChange = (event) => {
       setFiltro(event.target.value);
