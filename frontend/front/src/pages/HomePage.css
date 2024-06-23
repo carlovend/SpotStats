@@ -44,6 +44,13 @@ width: 85%;
   width: 300px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  justify-content: center;
+}
+
+.artist-image {
+  border-radius: 13px;
+  width: 80px;
+  height: 80px;
 }
 
 .song-card:hover {

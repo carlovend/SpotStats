@@ -1,6 +1,5 @@
 /* SearchPage.css */
 .search-page {
-
   display: flex;
   width: 85%;
   flex-direction: column;
@@ -61,6 +60,9 @@
 }
 
 .song-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   background-color: #1e1e1e;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -75,9 +77,6 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.song-info {
-  padding: 20px;
-}
 
 .song-name {
   font-size: 1.5rem;

@@ -36,6 +36,7 @@ def create_documents(df):
             "release_date": row["Release Date"],
             "popularity": row["Popularity"],
             "key": row["Chord"],
+            "image_url": row["image_url"]
         }
         songs.append(song)
 
@@ -45,7 +46,8 @@ def create_documents(df):
                 "artist_id": row["Artist"],
                 "name": row["Artist"],
                 "followers": row["Artist Followers"],
-                "genres": row["Genre"]  # Convertire la stringa di generi in una lista
+                "genres": row["Genre"],  # Convertire la stringa di generi in una lista
+                "image_url": row["image_url"]
             }
 
     return songs, list(artists.values())
