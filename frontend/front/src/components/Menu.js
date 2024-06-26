@@ -28,6 +28,18 @@ class Menu extends React.Component {
                   <span>Trending Artists</span>
                 </div>
                     </Link>
+                  <Link to={"/most_streamed"}>
+                  <div className="sidebar-option">
+                  <FontAwesomeIcon icon={faStar} />
+                  <span>Most Streamed</span>
+                </div>
+                    </Link>
+                  <Link to={"/looking_for"}>
+                  <div className="sidebar-option">
+                  <FontAwesomeIcon icon={faStar} />
+                  <span>Looking For</span>
+                </div>
+                    </Link>
               </div>
             </div>
   );

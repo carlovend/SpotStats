@@ -46,3 +46,23 @@ def find_popular_songs(filtro_ordinamento="popularity"):
     songs = (songs_collection.find(filtro_popularity).sort(filtro_ordinamento, direction=direction).limit(100))
 
     return list(songs)
+
+
+def looking_for_query(filtro, nome_artista, numero_stream):
+    regex_pattern = ".*" + nome_artista + ".*"
+    comparison_operator = "$gt" if filtro == "gt" else "$lt"
+
+    filtro_streams = {
+        "$and": [
+            {"artist_id": {"$regex": regex_pattern, "$options": "i"}},  # 'i' per case-insensitive
+            {"streams": {comparison_operator: numero_stream}},
+        ]
+    }
+
+    songs = songs_collection.find(filtro_streams).limit(100)
+    results = list(songs)
+    print(results)  # Stampa i risultati per debug o verifica
+    return results
+
+
+

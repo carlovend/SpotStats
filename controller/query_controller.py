@@ -45,9 +45,42 @@ def find_popular_songs():
 
 
 @app.route("/query/find_most_followed_artists", methods=['POST'])
-def find_most_streamed_songs():
+def find_most_streamed_artists():
     result = manager.find_top_50_artists()
     print(result[0])
+    return app.response_class(response=dumps(result), mimetype='application/json'), 200
+
+
+@app.route("/query/find_most_streamed_songs", methods=['POST'])
+def find_most_streamd_songs():
+    result = manager.find_most_streamed_song()
+    return app.response_class(response=dumps(result), mimetype='application/json'), 200
+
+
+@app.route("/query/looking_for", methods=['POST'])
+@cross_origin()
+def look_for_query():
+    """
+    {
+        "nome_artista": "Drake",
+         "num_streams": 8000,
+         "filtro": "gt"
+    }
+    :return:
+    """
+    try:
+        data = request.get_json()
+    except:
+        return jsonify({"error": "Invalid request"}), 400
+
+    nome_artista = data["nome_artista"]
+    num_streams = data["num_streams"]
+    if type(num_streams) == str:
+        num_streams = int(num_streams)
+    filtro = data["filtro"]
+
+    result = manager.looking_for_query(filtro, nome_artista, num_streams)
+    print(result)
     return app.response_class(response=dumps(result), mimetype='application/json'), 200
 
 

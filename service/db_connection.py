@@ -46,7 +46,7 @@ def create_documents(df):
                 "artist_id": row["Artist"],
                 "name": row["Artist"],
                 "followers": row["Artist Followers"],
-                "genres": row["Genre"],  # Convertire la stringa di generi in una lista
+                "genres": row['Genre'],
                 "image_url": row["image_url"]
             }
 

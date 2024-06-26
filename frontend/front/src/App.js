@@ -6,6 +6,8 @@ import SearchPage from "./pages/SearchPage";
 import Menu from "./components/Menu"; // Assicurati che il percorso sia corretto
 import AppShell from "./AppShell";
 import TrendingPage from "./pages/TrendingArtistsPage";
+import MostStreamedSongs from "./pages/MostStreamedSongs";
+import LookingForPage from "./pages/LookingForPage";
 
 
 const AppRoutes = () => {
@@ -14,6 +16,9 @@ const AppRoutes = () => {
             <Route path="/" element={<AppShell> <Menu/> <HomePage/> </AppShell>} />
             <Route path="/search" element={<AppShell> <Menu/> <SearchPage/> </AppShell>} />
             <Route path="/trending_artists" element={<AppShell> <Menu/> <TrendingPage/> </AppShell>} />
+            <Route path="/most_streamed" element={<AppShell> <Menu/> <MostStreamedSongs/> </AppShell>} />
+            <Route path="/looking_for" element={<AppShell> <Menu/> <LookingForPage/> </AppShell>} />
+
         </Routes>
     )
 }

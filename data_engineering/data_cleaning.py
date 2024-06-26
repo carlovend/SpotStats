@@ -18,4 +18,4 @@ dataset['image_url'] = dataset.apply(lambda row: get_artist_image_by_name(row['A
 
 dataset['Popularity'] = pd.to_numeric(dataset['Popularity'], errors='coerce')
 pd.DataFrame(dataset).to_csv(os.path.join(root_path, 'dataset/clean_dataset.csv'))
-
+print(f"FINAL SHAPE: {dataset.shape}")
