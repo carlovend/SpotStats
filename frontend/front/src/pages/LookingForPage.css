@@ -1,0 +1,53 @@
+/* Imposta uno sfondo scuro */
+body {
+    background-color: #121212;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Wrapper esterno per centrare gli elementi */
+.lf-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Centra gli elementi sulla pagina */
+.lf-search-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+
+
+/* Stile del contenitore della barra di ricerca */
+.lf-container-search-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Spazio tra gli elementi */
+    margin-bottom: 40px;
+}
+
+/* Stile degli input */
+.lf-container-search-bar input,
+.lf-container-search-bar select {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Colore di sfondo e bordo del bottone */
