@@ -4,14 +4,13 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMusic} from "@fortawesome/free-solid-svg-icons";
 import ArtistCard from "../components/ArtistCard";
 
-const TrendingArtistsPage = () => {
+const StreamedSongsPage = () => {
 const [results, setResults] = useState([]);
-const [filtro, setFiltro] = useState("Artists")
+    const [filtro, setFiltro] = useState("Artists")
 
-  useEffect(() => {
+    useEffect(() => {
     fetchResults();
   }, []);
-
 
   const fetchResults = () => {
       if(filtro === "Artists") {
@@ -37,8 +36,6 @@ const [filtro, setFiltro] = useState("Artists")
     }
   }
 
-
-
 return (
     <div className="homepage">
         <div className="header">
@@ -60,4 +57,4 @@ return (
 );
 };
 
-export default TrendingArtistsPage;
+export default StreamedSongsPage;

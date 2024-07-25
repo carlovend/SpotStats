@@ -31,6 +31,7 @@ def find_most_streamed_song():
 
     return list(results)
 
+
 # query della home
 def find_popular_songs(filtro_ordinamento="popularity"):
     """
@@ -61,7 +62,7 @@ def looking_for_query(filtro, nome_artista, numero_stream):
 
     songs = songs_collection.find(filtro_streams).limit(100)
     results = list(songs)
-    print(results)  # Stampa i risultati per debug o verifica
+    print(results)
     return results
 
 
