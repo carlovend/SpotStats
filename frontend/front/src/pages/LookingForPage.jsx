@@ -42,26 +42,30 @@ function LookingForPage() {
         <div className="lf-wrapper">
             <div className="lf-search-page">
                 <div className="header">
-                    <h1><FontAwesomeIcon icon={faMusic}/> Most Streamed Songs </h1>
+                    <h1><FontAwesomeIcon icon={faMusic}/> Looking For Page </h1>
                 </div>
                 <div className="lf-container-search-bar">
                     <input
+                        className="barra-ricerca"
                         type="text"
                         value={genre}
                         onChange={(e) => setGenre(e.target.value)}
                         placeholder="Artista"
                     />
-                    <input
-                        type="number"
-                        value={numberStreams}
-                        onChange={(e) => setNumberStreams(e.target.value)}
-                        placeholder="Number of Streams"
-                    />
-                    <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-                        <option value="gt">Greater Than</option>
-                        <option value="lt">Less Than</option>
-                    </select>
-                    <button onClick={fetchSongs} className="submit-button">Search</button>
+
+                        <select className="select-ordinamento-looking" value={filter} onChange={(e) => setFilter(e.target.value)}>
+                            <option value="gt">Greater Than</option>
+                            <option value="lt">Less Than</option>
+                        </select>
+                        <input
+                            className="barra-ricerca"
+                            type="number"
+                            value={numberStreams}
+                            onChange={(e) => setNumberStreams(e.target.value)}
+                            placeholder="Number of Streams"
+                        />
+
+                    <button onClick={fetchSongs} className="submit-button-home">Search</button>
                 </div>
                 <div className="results">
                     {results.length === 0 ? (

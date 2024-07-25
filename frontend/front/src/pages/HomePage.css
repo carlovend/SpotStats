@@ -10,6 +10,28 @@ width: 85%;
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.select-ordinamento {
+  background-color: #343434;
+  color: white;
+  border: transparent;
+  font-size: 17px;
+  margin-left: 10px;
+  border-radius: 5px 5px 5px 5px;
+  padding: 0 0 0 5px;
+}
+
+.select-ordinamento-looking {
+  width: 300px;
+  background-color: #343434;
+  color: white;
+  border: transparent;
+  font-size: 17px;
+  margin-left: 10px;
+  border-radius: 5px 5px 5px 5px;
+  padding: 0 0 0 5px;
 }
 
 .header h1 {

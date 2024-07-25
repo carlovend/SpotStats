@@ -47,20 +47,22 @@ const HomePage = () => {
   return (
       <div className="homepage">
           <div className="header">
-              <h1><FontAwesomeIcon icon={faMusic}/> Top 100 Popular Songs</h1>
+              <h1>Top 100 Popular Songs</h1>
           </div>
 
           <div className="header">
+
               <h2>Filtro di Ordinamento: </h2>
-              <select onChange={handleFiltroChange}>
+              <select onChange={handleFiltroChange} className="select-ordinamento">
                   <option value="popularity">Popolarità</option>
                   <option value="name">Nome Canzone</option>
                   <option value="artist_id">Nome Artista</option>
                   <option value="highest_position">Posizione più alta</option>
               </select>
-              <button className="submit-button" onClick={fetchSongs}>Submit</button>
           </div>
-
+          <div className="header">
+              <button className="submit-button-home" onClick={fetchSongs}>Submit</button>
+</div>
           {songs.length === 0 ? (
               <p className="loading">Loading songs...</p>
           ) : (
