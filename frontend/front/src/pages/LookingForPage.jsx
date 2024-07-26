@@ -39,7 +39,7 @@ function LookingForPage() {
     }
 
     return (
-        <div className="lf-wrapper">
+        <div className="homepage">
             <div className="lf-search-page">
                 <div className="header">
                     <h1><FontAwesomeIcon icon={faMusic}/> Looking For Page </h1>
