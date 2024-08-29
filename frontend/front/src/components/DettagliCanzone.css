@@ -1,0 +1,79 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Sfondo semi-trasparente scuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #1e1e1e; /* Colore di sfondo della modale */
+    border-radius: 15px;
+    width: 80%;
+    max-width: 800px; /* Larghezza massima per una visualizzazione migliore */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    color: white;
+    position: relative;
+    overflow: hidden; /* Per evitare overflow nel contenuto */
+    display: flex;
+    flex-direction: row; /* Layout orizzontale */
+    align-items: flex-start;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.8rem;
+    color: #bbb;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #fff; /* Cambia colore al passaggio del mouse */
+}
+
+.modal-image {
+    width: 40%; /* Larghezza dell'immagine */
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px; /* Spazio tra immagine e testo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per l'immagine */
+}
+
+.modal-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1DB954;
+    margin-bottom: 10px;
+    text-align: center; /* Allinea il titolo al centro */
+}
+
+.modal-info {
+    font-size: 1rem;
+    color: #bbb;
+    margin: 5px 0;
+}
+
+.modal-info p {
+    margin: 10px 0; /* Spaziatura uniforme tra le righe */
+}
+
+.modal-info span {
+    font-weight: bold; /* Evidenzia i titoli delle informazioni */
+    color: #1DB954; /* Colore verde per i titoli */
+}

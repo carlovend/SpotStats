@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMusic } from '@fortawesome/free-solid-svg-icons';
 import './HomePage.css';
 import SongCard from "../components/SongCard";
+import DettagliCanzone from "../components/DettagliCanzone";
 
 
 
@@ -10,6 +11,7 @@ import SongCard from "../components/SongCard";
 const HomePage = () => {
     const [songs, setSongs] = useState([]);
     const [filtro, setFiltro] = useState("popularity")
+    const [selectedSong, setSelectedSong] = useState(null);
 
     const handleFiltroChange = (event) => {
       setFiltro(event.target.value);
@@ -44,6 +46,15 @@ const HomePage = () => {
     fetchSongs();
   }, []);
 
+    const handleSongClick = (song) => {
+        setSelectedSong(song); // Imposta la canzone selezionata per mostrare il modal
+    };
+
+    const closeDetails = () => {
+        setSelectedSong(null); // Chiudi il modal
+    };
+
+
   return (
       <div className="homepage">
           <div className="header">
@@ -68,10 +79,11 @@ const HomePage = () => {
           ) : (
               <div className="song-list">
                   {songs.map(song => (
-                      <SongCard key={song._id} song={song}/>
+                      <SongCard key={song._id} song={song} onClick={() => handleSongClick(song)}/>
                   ))}
               </div>
           )}
+          {selectedSong && <DettagliCanzone song={selectedSong} onClose={closeDetails} />}
       </div>
   );
 };

@@ -3,7 +3,8 @@ import React from "react";
 class SongCard extends React.Component {
 
     render() {
-        return <div className="song-card">
+        const { song, onClick } = this.props;
+        return <div className="song-card" onClick={onClick}>
             <img className="artist-image" src={this.props.song.image_url} alt="Artist image"/>
             <div className="song-info">
                 <h2 className="song-name">{this.props.song.name}</h2>
