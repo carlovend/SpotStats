@@ -7,6 +7,23 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 
+@app.route("/insert", methods=['POST'])
+def insert():
+    # prendi dati dalla request
+    try:
+        data = request.get_json()
+
+        if not data or "name" not in data:
+            return jsonify({"error": "Invalid request: 'song_name' required"}), 400
+
+    except:
+        return jsonify({"error": "Invalid request: JSON required"}), 400
+
+    # chiama manager per scrivere nel db
+    manager.add_to_db(data)
+    return app.response_class(mimetype='application/json'), 200
+
+
 
 @app.route("/query/find_song_by_name", methods=['POST'])
 def find_by_name():

@@ -1,5 +1,7 @@
 from pymongo import MongoClient
 import pymongo
+import data_engineering.utils as utils
+import datetime
 
 client = MongoClient('mongodb://localhost:27017/')
 db = client['SpotyStats']
@@ -20,9 +22,20 @@ def find_song_by_artist(artista: str):
 
 
 # query per mosto followed artist
-
 def find_top_50_artists():
-    results = list(artists_collection.find().sort("Followers", pymongo.DESCENDING).limit(50))
+    pipeline = [
+        {
+            "$sort": {
+                "Followers": -1
+            }
+        },
+        {
+            "$limit": 50
+        }
+    ]
+
+    results = list(artists_collection.aggregate(pipeline))
+
     return results
 
 
@@ -64,6 +77,33 @@ def looking_for_query(filtro, nome_artista, numero_stream):
     results = list(songs)
     print(results)
     return results
+
+
+def add_to_db(song):
+    artist_name = song["artist_id"]
+
+    artist_image = utils.get_artist_image_by_name(artist_name)
+    print("OST inserito")
+
+    nuova_canzone = {
+        "name": song["name"],
+        "artist_id": artist_name,
+        "genre": song["genre"],
+        "highest_position": song["highest_position"],
+        "weeks_on_chart": 12,
+        "streams": song["streams"],
+        "release_date": "2023-08-01",
+        "popularity": 85,
+        "key": "C",
+        "image_url": artist_image,
+    }
+    result = songs_collection.insert_one(nuova_canzone)
+    print("inserito")
+
+    return result
+
+
+
 
 
 
