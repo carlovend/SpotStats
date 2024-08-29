@@ -20,7 +20,7 @@ def split_name(name):
 def get_artist_image_by_name(name):
     name = split_name(name)
     results = sp.search(q='artist:' + name, type='artist')
-    print(f"""RESULTS = {results}""")
+
     items = results['artists']['items']
     if len(items) > 0:
         artist = items[0]
@@ -28,6 +28,6 @@ def get_artist_image_by_name(name):
             return ""
 
         link = artist['images'][0]['url']
-        print(f"""LINK NELLA FUNZIONE = {link}""")
+
         return link
 

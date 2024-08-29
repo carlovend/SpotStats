@@ -15,7 +15,7 @@ const DettagliArtista = ({ artist, onClose }) => {
                     <div className="modal-info">
                         <p><span>Followers:</span> {artist.followers}</p>
                         <p><span>Genres:</span> {genres}</p>
-                        <p><span>Popularity:</span> {artist.popularity}</p>
+                        <p><span>Total Streams:</span> {artist.total_streams}</p>
                     </div>
                 </div>
             </div>

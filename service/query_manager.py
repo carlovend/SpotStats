@@ -25,16 +25,54 @@ def find_song_by_artist(artista: str):
 def find_top_50_artists():
     pipeline = [
         {
-            "$sort": {
-                "Followers": -1
+            '$lookup': {
+                'from': 'Songs',  # Collezione Songs
+                'localField': 'artist_id',  # Campo nella collezione Artists che corrisponde a Songs.artist_id
+                'foreignField': 'artist_id',  # Campo nella collezione Songs che fa riferimento a Artists._id
+                'as': 'songs'  # Nome del nuovo array che conterrà le canzoni dell'artista
             }
         },
         {
-            "$limit": 50
+            '$unwind': {
+                'path': '$songs',
+                'preserveNullAndEmptyArrays': True  # Mantieni gli artisti anche se non hanno canzoni
+            }
+        },
+        {
+            '$group': {
+                '_id': '$_id',  # Raggruppa per l'ID dell'artista
+                'total_streams': {'$sum': '$songs.streams'},  # Somma degli streams per ogni artista
+                'artist_data': {'$first': '$$ROOT'}  # Mantieni tutti i dati dell'artista
+            }
+        },
+        {
+            '$addFields': {
+                'artist_data.total_streams': '$total_streams'  # Aggiungi il campo total_streams ai dati dell'artista
+            }
+        },
+        {
+            '$replaceRoot': {
+                'newRoot': '$artist_data'  # Sostituisci il documento corrente con i dati dell'artista
+            }
+        },
+        {
+            '$sort': {
+                'followers': -1  # Ordina gli artisti per numero di follower in ordine decrescente
+            }
+        },
+        {
+            '$limit': 50  # Limita i risultati ai primi 50 artisti
         }
     ]
 
+    # Esegui la pipeline di aggregazione
     results = list(artists_collection.aggregate(pipeline))
+
+    for artist in results:
+        followers_number = int(artist['followers'])
+        formatted_followers = f"{followers_number:,}".replace(",", ".")
+        artist["followers"] =formatted_followers
+        artist['total_streams'] = f"{artist['total_streams']:,}".replace(",", ".")
 
     return results
 

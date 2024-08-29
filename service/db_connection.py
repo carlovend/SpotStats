@@ -40,7 +40,6 @@ def create_documents(df):
         }
         songs.append(song)
 
-        # Creazione del documento per l'artista se non già presente
         if row["Artist"] not in artists:
             artists[row["Artist"]] = {
                 "artist_id": row["Artist"],
@@ -49,7 +48,6 @@ def create_documents(df):
                 "genres": row['Genre'],
                 "image_url": row["image_url"]
             }
-
     return songs, list(artists.values())
 
 
