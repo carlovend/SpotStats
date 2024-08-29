@@ -3,10 +3,12 @@ import './SearchPage.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMusic} from "@fortawesome/free-solid-svg-icons";
 import ArtistCard from "../components/ArtistCard";
+import DettagliArtista from "../components/DettagliArtista";
 
 const TrendingArtistsPage = () => {
 const [results, setResults] = useState([]);
-const [filtro, setFiltro] = useState("Artists")
+const [filtro, setFiltro] = useState("Artists");
+const [selectedArtist, setSelectedArtist] = useState(null);
 
   useEffect(() => {
     fetchResults();
@@ -37,7 +39,13 @@ const [filtro, setFiltro] = useState("Artists")
     }
   }
 
+const handleArtistClick = (artist) => {
+        setSelectedArtist(artist);
+    }
 
+    const handleCloseModal = () => {
+        setSelectedArtist(null);
+    }
 
 return (
     <div className="homepage">
@@ -50,12 +58,18 @@ return (
             ) : (
                 <div className="song-list">
                     {results.map(r => (
-                        <ArtistCard artist={r}/>
+                        <ArtistCard key={r._id} artist={r} onClick={() => handleArtistClick(r)} />
                     ))}
                 </div>
                 )
             }
         </div>
+        {selectedArtist && (
+                <DettagliArtista
+                    artist={selectedArtist}
+                    onClose={handleCloseModal}
+                />
+            )}
     </div>
 );
 };

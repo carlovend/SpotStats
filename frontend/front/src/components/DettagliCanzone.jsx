@@ -12,7 +12,7 @@ const DettagliCanzone = ({ song, onClose }) => {
                 <div className="modal-details">
                     <h2 className="modal-title">{song.name}</h2>
                     <div className="modal-info">
-                        <p><span>Artist:</span> {song.artist}</p>
+                        <p><span>Artist:</span> {song.artist_id}</p>
                         <p><span>Highest Position:</span> {song.highest_position}</p>
                         <p><span>Popularity:</span> {song.popularity}</p>
                         <p><span>Release Date:</span> {song.release_date}</p>

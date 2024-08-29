@@ -79,11 +79,14 @@ const HomePage = () => {
           ) : (
               <div className="song-list">
                   {songs.map(song => (
-                      <SongCard key={song._id} song={song} onClick={() => handleSongClick(song)}/>
+                      console.log(song),
+                      <SongCard key={song._id}
+                                song={song} onClick={() => handleSongClick(song) }/>
                   ))}
               </div>
           )}
-          {selectedSong && <DettagliCanzone song={selectedSong} onClose={closeDetails} />}
+          {selectedSong && <DettagliCanzone  artist={selectedSong.artist}
+                                             song={selectedSong} onClose={closeDetails} />}
       </div>
   );
 };

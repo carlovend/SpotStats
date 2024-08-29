@@ -4,11 +4,13 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMusic} from "@fortawesome/free-solid-svg-icons";
 import ArtistCard from "../components/ArtistCard";
 import SongCard from "../components/SongCard";
+import DettagliCanzone from "../components/DettagliCanzone";
 
 const TrendingArtistsPage = () => {
 
 const [filtro, setFiltro] = useState("Artists")
 const [songs, setSongs] = useState([]);
+const [selectedSong, setSelectedSong] = useState(null);
 
 useEffect(() => {
     fetchSongs();
@@ -38,7 +40,13 @@ useEffect(() => {
         console.error('There was an error fetching the popular songs!', error);
       });
     }
+const handleSongClick = (song) => {
+        setSelectedSong(song); // Imposta la canzone selezionata per mostrare il modal
+    };
 
+    const closeDetails = () => {
+        setSelectedSong(null); // Chiudi il modal
+    };
 
 return (
     <div className="homepage">
@@ -51,12 +59,13 @@ return (
             ) : (
                 <div className="song-list">
                     {songs.map(r => (
-                         <SongCard key={r._id} song={r}/>
+                         <SongCard key={r._id} song={r} onClick={() => handleSongClick(r)}/>
                     ))}
                 </div>
                 )
             }
         </div>
+        {selectedSong && <DettagliCanzone song={selectedSong} onClose={closeDetails} />}
     </div>
 );
 };
