@@ -83,27 +83,28 @@
   width: 300px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative; /* Aggiunto per posizionare la 'x' */
+}
+
+.remove-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.remove-button:hover {
+  color: #ff4c4c; /* Cambia colore quando il mouse passa sopra */
 }
 
 .song-card:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.remove-button-search {
-    display: inline-block;
-    padding: 10px;
-    background-color: #f44336; /* Rosso */
-    color: white; /* Testo bianco */
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #da190b; /* Rosso scuro al passaggio del mouse */
 }
 
 .song-name {

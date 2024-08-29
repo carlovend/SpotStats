@@ -66,6 +66,7 @@ const SearchPage = () => {
           results.map(song => (
             <div key={song._id} className="song-card">
                 <div className="song-info">
+                    <button className="remove-button" onClick={() => removeSong(song.name)}>X</button>
                     <h2 className="song-name">{song.name}</h2>
                     <p className="song-artist">Artist: {song.artist_id}</p>
                     <p className="song-position">Highest Position: {song.highest_position}</p>
@@ -74,7 +75,6 @@ const SearchPage = () => {
                     <p className="song-release">Release Date: {new Date(song.release_date).toLocaleDateString()}</p>
                     <p className="song-popularity">Popularity: {song.popularity}</p>
                     <p className="song-key">Key: {song.key}</p>
-                    <button className="remove-button-search" onClick={() => removeSong(song.name)}>X</button>
                 </div>
             </div>
           ))
