@@ -103,6 +103,10 @@ def add_to_db(song):
     return result
 
 
+def remove_song(song_name):
+    result = songs_collection.delete_one({"name": song_name})
+    return result
+
 
 
 

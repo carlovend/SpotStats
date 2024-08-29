@@ -1,6 +1,7 @@
 import React from "react";
 
 class SongCard extends React.Component {
+
     render() {
         return <div className="song-card">
             <img className="artist-image" src={this.props.song.image_url} alt="Artist image"/>

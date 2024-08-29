@@ -7,6 +7,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 
+
 @app.route("/insert", methods=['POST'])
 def insert():
     # prendi dati dalla request
@@ -22,7 +23,6 @@ def insert():
     # chiama manager per scrivere nel db
     manager.add_to_db(data)
     return app.response_class(mimetype='application/json'), 200
-
 
 
 @app.route("/query/find_song_by_name", methods=['POST'])
@@ -100,6 +100,26 @@ def look_for_query():
     print(result)
     return app.response_class(response=dumps(result), mimetype='application/json'), 200
 
+
+@app.route("/remove", methods=['POST'])
+@cross_origin()
+def remove_song():
+    try:
+        print("sono nel try")
+        data = request.get_json()
+        song_name = data["song_name"]
+    except:
+        print("sono qui")
+        return jsonify({"error": "Invalid request"}), 400
+
+    print(song_name, "CIAO")
+    result = manager.remove_song(song_name)
+
+
+    if result.deleted_count > 0:
+        return jsonify({"success": True, "message": f"Canzone '{song_name}' rimossa con successo"}), 200
+    else:
+        return jsonify({"success": False, "message": "Canzone non trovata"}), 404
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5010, debug=True)
