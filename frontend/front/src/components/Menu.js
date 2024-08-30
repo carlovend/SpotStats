@@ -1,6 +1,15 @@
 import React from "react";
 import './menu_style.css'
-import {faChartBar, faHome, faHomeLg, faHomeLgAlt, faMusic, faSearch, faStar} from "@fortawesome/free-solid-svg-icons";
+import {
+    faChartBar,
+    faHome,
+    faHomeLg,
+    faHomeLgAlt,
+    faMusic,
+    faPlus,
+    faSearch,
+    faStar
+} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
 
@@ -40,6 +49,14 @@ class Menu extends React.Component {
                   <span>Looking For</span>
                 </div>
                     </Link>
+
+                  <Link to={"/insert"}>
+                  <div className="sidebar-option">
+                  <FontAwesomeIcon icon={faPlus} />
+                  <span>Insert</span>
+                </div>
+                    </Link>
+
               </div>
             </div>
   );

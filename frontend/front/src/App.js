@@ -8,6 +8,7 @@ import AppShell from "./AppShell";
 import TrendingPage from "./pages/TrendingArtistsPage";
 import MostStreamedSongs from "./pages/MostStreamedSongs";
 import LookingForPage from "./pages/LookingForPage";
+import InsertPage from "./pages/InsertPage";
 
 
 const AppRoutes = () => {
@@ -18,7 +19,7 @@ const AppRoutes = () => {
             <Route path="/trending_artists" element={<AppShell> <Menu/> <TrendingPage/> </AppShell>} />
             <Route path="/most_streamed" element={<AppShell> <Menu/> <MostStreamedSongs/> </AppShell>} />
             <Route path="/looking_for" element={<AppShell> <Menu/> <LookingForPage/> </AppShell>} />
-
+            <Route path="/insert" element={<AppShell> <Menu/> <InsertPage/> </AppShell>} />
         </Routes>
     )
 }

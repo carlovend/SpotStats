@@ -64,19 +64,17 @@ const SearchPage = () => {
           <p>No results found</p>
         ) : (
           results.map(song => (
-            <div key={song._id} className="song-card">
-                <div className="song-info">
-                    <button className="remove-button" onClick={() => removeSong(song.name)}>X</button>
-                    <h2 className="song-name">{song.name}</h2>
-                    <p className="song-artist">Artist: {song.artist_id}</p>
-                    <p className="song-position">Highest Position: {song.highest_position}</p>
-                    <p className="song-weeks">Weeks on Chart: {song.weeks_on_chart}</p>
-                    <p className="song-streams">Streams: {song.streams}</p>
-                    <p className="song-release">Release Date: {new Date(song.release_date).toLocaleDateString()}</p>
-                    <p className="song-popularity">Popularity: {song.popularity}</p>
-                    <p className="song-key">Key: {song.key}</p>
-                </div>
-            </div>
+              <div key={song._id} className="song-card">
+                  <img className="artist-image" src={song.image_url} alt="Artist image"/>
+                  <div className="song-info">
+                      <button className="remove-button" onClick={() => removeSong(song.name)}>X</button>
+                      <h2 className="song-name">{song.name}</h2>
+                      <p className="song-artist">Artist: {song.artist_id}</p>
+                      <p className="song-position">Highest Position: {song.highest_position}</p>
+                      <p className="song-weeks">Weeks on Chart: {song.weeks_on_chart}</p>
+                      <p className="song-streams">Streams: {song.streams}</p>
+                  </div>
+              </div>
           ))
         )}
       </div>

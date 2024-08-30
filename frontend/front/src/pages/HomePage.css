@@ -69,6 +69,15 @@ width: 85%;
   justify-content: center;
 }
 
+.results .song-card {
+  width: 400px;
+}
+
+.results .song-card .artist-image {
+    width: 100px;
+  height: 110px;
+}
+
 .artist-image {
   border-radius: 13px;
   width: 80px;
@@ -95,6 +104,66 @@ width: 85%;
   font-size: 1rem;
   color: #bbb;
   margin: 5px 0;
+}
+
+.insertForm {
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 700px;
+  height: 200px;
+}
+
+.container-form-ins {
+  display: flex;
+  justify-content: center;
+}
+
+.container-nomi-form {
+  display: flex;
+  gap: 10px;
+}
+
+.container-nomi-form > input {
+  padding: 10px;
+  font-size: 1rem;
+  width: 300px;
+  color: white;
+  border: none;
+  background-color: #343434;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.select-ordinamento-looking-new {
+  width:80px;
+  background-color: #343434;
+  color: white;
+  border: transparent;
+  font-size: 17px;
+  margin-left: 10px;
+  border-radius: 5px 5px 5px 5px;
+  padding: 0 0 0 5px;
+}
+
+.container-bottone {
+  display: flex;
+  justify-content: center;
+}
+
+.container-bottone > button {
+    padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #1DB954;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
 @keyframes fadeIn {

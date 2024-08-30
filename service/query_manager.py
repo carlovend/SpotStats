@@ -129,7 +129,7 @@ def add_to_db(song):
         "genre": song["genre"],
         "highest_position": song["highest_position"],
         "weeks_on_chart": 12,
-        "streams": song["streams"],
+        "streams": int(song["streams"]),
         "release_date": "2023-08-01",
         "popularity": 85,
         "key": "C",
